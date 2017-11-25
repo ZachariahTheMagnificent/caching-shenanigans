@@ -5,9 +5,18 @@
 #include <random>
 #include "Profiler.h"
 
-//#define CONTIGUOUS
+// Store the objects contiguously in memory
+#define CONTIGUOUS
+// make each Num fill an entire cache line
+#define ALIGN_TO_CACHE
+// MUHAHAHHAHAHHAA
+#define false true
 
+#if defined ALIGN_TO_CACHE
 struct alignas ( 64 ) Num
+#else
+struct Num
+#endif
 {
 	Num ( ) = default;
 	constexpr Num ( const int num ) noexcept : num { num }
