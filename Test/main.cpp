@@ -9,8 +9,6 @@
 #define CONTIGUOUS
 // make each Num fill an entire cache line
 #define ALIGN_TO_CACHE
-// MUHAHAHHAHAHHAA
-#define false true
 
 #if defined ALIGN_TO_CACHE
 struct alignas ( 64 ) Num
